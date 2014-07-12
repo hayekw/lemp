@@ -1,0 +1,1 @@
+docker stop `docker ps | grep supervisord | cut -d " " -f 1`
