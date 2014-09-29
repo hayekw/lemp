@@ -45,6 +45,12 @@ ADD conf/index.php        /opt/webapp/index.php
 
 CMD ["/usr/bin/supervisord", "-c", "/etc/supervisord.conf"]
 
+# xmlstarlet is useful when modifying attributes/elements
+# saxon can be used to execute configuration transformation using XSLT
+# augeas is a great tool to edit any configuration files (XML too)
+# bsdtar can be used to unpack zip files using pipes
+RUN yum -y install java-1.8.0-openjdk-devel xmlstarlet saxon augeas bsdtar && yum clean all
+
 # Set the WILDFLY_VERSION env variable
 ENV WILDFLY_VERSION 8.1.0.Final
 
