@@ -42,6 +42,15 @@ ADD conf/nginx.conf       /etc/nginx/nginx.conf
 ADD conf/my.cnf           /etc/my.cnf
 ADD conf/php.ini          /etc/php.ini
 ADD conf/index.php        /opt/webapp/index.php
+ADD webtar/cometchat.zip  /opt/webapp/cometchat.zip
+
+RUN yum -y install unzip
+
+RUN unzip /opt/webapp/cometchat.zip -d /opt/webapp/
+
+RUN chkconfig nginx on
+RUN chkconfig mysql on
+RUN chkconfig php-fpm on
 
 CMD ["/usr/bin/supervisord", "-c", "/etc/supervisord.conf"]
 

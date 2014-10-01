@@ -1,1 +1,1 @@
-docker build -t lemp .
+docker build -t centos65:lemp .
